@@ -2,6 +2,7 @@ se #
 ###################
 node_modules/
 .sass-cache/
+css/
 
 # Compiled source #
 ###################
