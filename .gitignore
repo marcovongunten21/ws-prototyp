@@ -1,6 +1,7 @@
 se #
 ###################
-node_modules
+node_modules/
+.sass-cache/
 
 # Compiled source #
 ###################
