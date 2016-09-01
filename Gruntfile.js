@@ -2,9 +2,17 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		sass: {
-			dist: {
+			dev: {
 				options: {
 	        style: 'expanded'
+	      },
+				files: {
+					'css/styles.css' : 'sass/styles.scss'
+				}
+			},
+			dist: {
+				options: {
+	        style: 'minified'
 	      },
 				files: {
 					'css/styles.css' : 'sass/styles.scss'
@@ -14,7 +22,7 @@ module.exports = function(grunt) {
 		watch: {
 			css: {
 				files: 'sass/*.scss',
-				tasks: ['sass'],
+				tasks: ['sass:dev'],
 			}
 		}
 	});
