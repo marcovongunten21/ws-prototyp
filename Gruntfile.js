@@ -21,18 +21,4 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.registerTask('default',['watch']);
-
-  grunt.registerTask('minimize', 'Minimize that nice stylesheet', function() {
-   	sass: {
-			dist: {
-				options: {
-	        style: 'compressed'
-	      },
-				files: {
-					'css/styles.min.css' : 'sass/styles.scss'
-				}
-			}
-		}
-  });
-
 }
