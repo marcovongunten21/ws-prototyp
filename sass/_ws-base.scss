@@ -1,0 +1,7 @@
+html {
+	background-color: pink;
+}
+
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
