@@ -1,13 +1,17 @@
 {
   "name": "prototyp",
   "version": "1.0.0",
-  "description": "Description....",
+  "description": "Hier kommt die Beschreibung hin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "WeServe AG",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcovongunten21/ws-prototyp.git"
+  },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
     "cssnext": "^1.8.4",
