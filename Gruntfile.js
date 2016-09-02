@@ -23,11 +23,26 @@ module.exports = function(grunt) {
 		watch: {
 			css: {
 				files: 'sass/*.scss',
-				tasks: ['sass:dev'],
+				tasks: ['sass:dev', 'postcss'],
 			}
-		}
+		},
+		postcss: {
+      options: {
+      	processors: [
+      	  require('autoprefixer')(),
+      	  require('cssnext')(),
+      	  require('precss')()
+      	]
+      },
+      dist: {
+      	src: 'css/styles.css',
+      	dest: 'css/styles-prefixed.css'
+      }
+    }
 	});
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-postcss');
 	grunt.registerTask('default',['watch']);
+	grunt.registerTask('dist',['sass:dist', 'postcss']);
 }
