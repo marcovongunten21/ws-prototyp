@@ -1,33 +1,36 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		watch: {
+			sass: {
+				files: ['sass/**/*.{scss,sass}'],
+				tasks: ['sass:dev']
+			},
+			livereload: {
+				files: ['*.html', 'js/**/*.{js,json}', 'css/*.css','img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
+				options: {
+					livereload: true
+				}
+			}
+		},
 		sass: {
 			dev: {
 				options: {
-	        style: 'expanded'
-	      },
+					sourceMap: true,
+					outputStyle: 'expanded'
+				},
 				files: {
-					'css/styles.css' : 'sass/styles.scss'
+					'css/styles.css': 'sass/styles.scss'
 				}
 			},
 			dist: {
 				options: {
-	        style: 'compressed',
-	        sourceMap: false
-	      },
+					sourceMap: false,
+					outputStyle: 'compressed'
+				},
 				files: {
-					'css/styles.css' : 'sass/styles.scss'
+					'css/styles.css': 'sass/styles.scss'
 				}
-			}
-		},
-		watch: {
-			sass: {
-				files: 'sass/*.scss',
-				tasks: ['sass:dev', 'postcss'],
-			},
-			livereload: {
-				options: { livereload: true },
-				files: ['css/*.*'],
 			}
 		},
 		postcss: {
@@ -40,13 +43,13 @@ module.exports = function(grunt) {
       },
       dist: {
       	src: 'css/styles.css',
-      	dest: 'css/styles-prefixed.css'
+      	dest: 'css/styles.css'
       }
     }
 	});
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.registerTask('default', ['sass:dev', 'watch']);
+	grunt.registerTask('dist', ['sass:dist', 'postcss:dist']);
+	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-postcss');
-	grunt.registerTask('default',['watch']);
-	grunt.registerTask('dist',['sass:dist', 'postcss']);
-}
+	grunt.loadNpmTasks('grunt-contrib-watch');
+};

@@ -7,15 +7,20 @@ Um das die "dist" CSS-Dateien zu generieren:
 ```
 grunt dist
 ```
-*Es wird zusätzlich noch eine Version inkl. Prefixes erstellt.*
+Hier wird eine Compressed Version inkl. Prefixes erstellt.
 
 
 ## Development-Modus
 Um die SASS Dateien zu überwachen:
 ```
-grunt watch
+grunt
 ```
-*Es wird zusätzlich noch eine Version inkl. Prefixes erstellt.*
+Dies generiert einmal die CSS Styles im Expanded-Style. Die Prefixes werden nicht generiert.
+
+Um die Prefixes zu generieren:
+```
+grunt postcss:dist
+```
 
 # Shizzle
 
