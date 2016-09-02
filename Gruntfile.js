@@ -21,10 +21,13 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			css: {
-				options: { livereload: true },
+			sass: {
 				files: 'sass/*.scss',
 				tasks: ['sass:dev', 'postcss'],
+			},
+			livereload: {
+				options: { livereload: true },
+				files: ['css/*.*'],
 			}
 		},
 		postcss: {
